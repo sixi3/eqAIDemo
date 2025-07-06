@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-07-06T17:51:31.622Z",
+    "generatedAt": "2025-07-06T18:32:43.712Z",
     "period": "2025-06-06 to 2025-07-06",
     "version": "0.1.0"
   },
@@ -13,7 +13,7 @@
     "mostUsedTokens": [
       {
         "token": "borderRadius.lg",
-        "count": 83,
+        "count": 89,
         "files": [
           "src/components/common/Button.tsx",
           "src/components/common/TokensExample.tsx",
@@ -29,7 +29,7 @@
       },
       {
         "token": "typography.fontSize.sm",
-        "count": 76,
+        "count": 81,
         "files": [
           "src/components/common/Button.tsx",
           "src/components/common/TokensExample.tsx",
@@ -44,7 +44,7 @@
       },
       {
         "token": "typography.fontWeight.medium",
-        "count": 75,
+        "count": 77,
         "files": [
           "src/components/common/TokensExample.tsx",
           "src/components/design-system/DesignSystemDashboard.tsx",
@@ -58,7 +58,7 @@
       },
       {
         "token": "typography.fontWeight.semibold",
-        "count": 40,
+        "count": 41,
         "files": [
           "src/App.tsx",
           "src/components/common/Button.tsx",
@@ -90,6 +90,20 @@
         "category": "colors"
       },
       {
+        "token": "typography.fontSize.2xl",
+        "count": 25,
+        "files": [
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-size",
+        "category": "typography"
+      },
+      {
         "token": "borderRadius.full",
         "count": 25,
         "files": [
@@ -105,8 +119,8 @@
         "category": "borderRadius"
       },
       {
-        "token": "typography.fontSize.2xl",
-        "count": 21,
+        "token": "typography.fontSize.xs",
+        "count": 24,
         "files": [
           "src/components/common/TokensExample.tsx",
           "src/components/design-system/DesignSystemDashboard.tsx",
@@ -119,21 +133,8 @@
         "category": "typography"
       },
       {
-        "token": "typography.fontSize.xs",
-        "count": 21,
-        "files": [
-          "src/components/common/TokensExample.tsx",
-          "src/components/design-system/DesignSystemManager.tsx",
-          "src/components/examples/TokensShowcase.tsx",
-          "src/index.css",
-          "src/utils/design-system.ts"
-        ],
-        "type": "typography-size",
-        "category": "typography"
-      },
-      {
         "token": "typography.fontWeight.bold",
-        "count": 19,
+        "count": 23,
         "files": [
           "src/App.tsx",
           "src/components/common/TokensExample.tsx",
@@ -164,41 +165,153 @@
       }
     ],
     "unusedTokens": [
-      "colors.primary.200",
       "colors.primary.300",
       "colors.primary.400",
       "colors.primary.800",
       "colors.primary.900",
       "colors.primary.950",
-      "colors.secondary.200",
       "colors.secondary.300",
       "colors.secondary.400",
       "colors.secondary.800",
       "colors.secondary.900",
       "colors.secondary.950",
-      "spacing.0",
-      "spacing.1",
-      "spacing.2",
-      "spacing.3",
-      "spacing.4",
-      "spacing.5",
-      "spacing.6",
-      "spacing.8",
-      "spacing.10",
-      "spacing.12",
-      "spacing.16",
-      "spacing.20",
-      "spacing.24",
       "borderRadius.DEFAULT",
       "typography.fontFamily.primary",
       "typography.fontFamily.mono",
-      "opacity.0",
       "opacity.25",
       "opacity.50",
-      "opacity.75",
-      "opacity.100"
+      "opacity.75"
     ],
-    "adoptionRate": 84.61538461538461
+    "unusedTokensAnalysis": {
+      "unused": [
+        {
+          "token": "colors.primary.300",
+          "category": "unused-design",
+          "reason": "Mid-range design token not found in codebase",
+          "value": "#68ffa0",
+          "recommendation": "remove"
+        },
+        {
+          "token": "colors.primary.400",
+          "category": "unused-design",
+          "reason": "Mid-range design token not found in codebase",
+          "value": "#26f471",
+          "recommendation": "remove"
+        },
+        {
+          "token": "colors.primary.800",
+          "category": "unused-design",
+          "reason": "Mid-range design token not found in codebase",
+          "value": "#00622a",
+          "recommendation": "remove"
+        },
+        {
+          "token": "colors.primary.900",
+          "category": "design-scale",
+          "reason": "Extreme shade in color scale, may be used for subtle effects",
+          "value": "#005124",
+          "recommendation": "review"
+        },
+        {
+          "token": "colors.primary.950",
+          "category": "design-scale",
+          "reason": "Extreme shade in color scale, may be used for subtle effects",
+          "value": "#002d13",
+          "recommendation": "review"
+        },
+        {
+          "token": "colors.secondary.300",
+          "category": "unused-design",
+          "reason": "Mid-range design token not found in codebase",
+          "value": "#f1ff98",
+          "recommendation": "remove"
+        },
+        {
+          "token": "colors.secondary.400",
+          "category": "unused-design",
+          "reason": "Mid-range design token not found in codebase",
+          "value": "#e7ff62",
+          "recommendation": "remove"
+        },
+        {
+          "token": "colors.secondary.800",
+          "category": "unused-design",
+          "reason": "Mid-range design token not found in codebase",
+          "value": "#75a416",
+          "recommendation": "remove"
+        },
+        {
+          "token": "colors.secondary.900",
+          "category": "design-scale",
+          "reason": "Extreme shade in color scale, may be used for subtle effects",
+          "value": "#5d8317",
+          "recommendation": "review"
+        },
+        {
+          "token": "colors.secondary.950",
+          "category": "design-scale",
+          "reason": "Extreme shade in color scale, may be used for subtle effects",
+          "value": "#334a08",
+          "recommendation": "review"
+        },
+        {
+          "token": "borderRadius.DEFAULT",
+          "category": "system",
+          "reason": "System utility token, may be used indirectly",
+          "value": "0.25rem",
+          "recommendation": "keep"
+        },
+        {
+          "token": "typography.fontFamily.primary",
+          "category": "system",
+          "reason": "Font family tokens are often used in CSS configuration",
+          "value": "DM Sans",
+          "recommendation": "review"
+        },
+        {
+          "token": "typography.fontFamily.mono",
+          "category": "system",
+          "reason": "Font family tokens are often used in CSS configuration",
+          "value": "ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
+          "recommendation": "review"
+        },
+        {
+          "token": "opacity.25",
+          "category": "unknown",
+          "reason": "Token not detected in codebase scan",
+          "value": "0.25",
+          "recommendation": "review"
+        },
+        {
+          "token": "opacity.50",
+          "category": "unknown",
+          "reason": "Token not detected in codebase scan",
+          "value": "0.5",
+          "recommendation": "review"
+        },
+        {
+          "token": "opacity.75",
+          "category": "unknown",
+          "reason": "Token not detected in codebase scan",
+          "value": "0.75",
+          "recommendation": "review"
+        }
+      ],
+      "indirectlyUsed": [
+        {
+          "token": "opacity.100",
+          "usage": "indirect",
+          "value": "1"
+        }
+      ],
+      "summary": {
+        "totalUnused": 16,
+        "safeToRemove": 6,
+        "reviewNeeded": 9,
+        "keepForSystem": 1
+      }
+    },
+    "adoptionRate": 86.15384615384616
   },
   "changeFrequency": [
     {
@@ -265,7 +378,7 @@
       ]
     },
     "typography": {
-      "count": 303,
+      "count": 323,
       "tokens": [
         "typography.fontSize.3xl",
         "typography.fontSize.lg",
@@ -284,7 +397,7 @@
       ]
     },
     "borderRadius": {
-      "count": 144,
+      "count": 150,
       "tokens": [
         "borderRadius.xl",
         "borderRadius.lg",
@@ -308,14 +421,40 @@
     {
       "type": "cleanup",
       "priority": "medium",
-      "message": "Consider removing 33 unused tokens",
+      "message": "Consider removing 6 unused design tokens",
       "details": [
-        "colors.primary.200",
         "colors.primary.300",
         "colors.primary.400",
         "colors.primary.800",
-        "colors.primary.900"
-      ]
+        "colors.secondary.300",
+        "colors.secondary.400"
+      ],
+      "actionable": true,
+      "impact": "Reduces bundle size and design system complexity"
+    },
+    {
+      "type": "review",
+      "priority": "low",
+      "message": "Review 9 tokens that may be used indirectly",
+      "details": [
+        "colors.primary.900",
+        "colors.primary.950",
+        "colors.secondary.900",
+        "colors.secondary.950",
+        "typography.fontFamily.primary"
+      ],
+      "actionable": false,
+      "impact": "Ensures no important tokens are accidentally removed"
+    },
+    {
+      "type": "info",
+      "priority": "low",
+      "message": "1 system tokens are unused but should be kept",
+      "details": [
+        "borderRadius.DEFAULT"
+      ],
+      "actionable": false,
+      "impact": "These tokens provide system functionality"
     }
   ],
   "trends": {

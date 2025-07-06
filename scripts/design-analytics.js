@@ -158,7 +158,8 @@ class DesignSystemAnalytics {
         uniqueContributors: this.getUniqueContributors().length,
         lastUpdate: this.data.tokenChanges[this.data.tokenChanges.length - 1]?.timestamp,
         mostUsedTokens: this.getMostUsedTokens(),
-        unusedTokens: this.getUnusedTokens(),
+        unusedTokens: this.getUnusedTokens().unused.map(t => t.token),
+        unusedTokensAnalysis: this.getUnusedTokens(),
         adoptionRate: this.calculateAdoptionRate()
       },
       changeFrequency: this.calculateChangeFrequency(),
@@ -179,10 +180,296 @@ class DesignSystemAnalytics {
       .map(([token, data]) => ({ token, ...data }));
   }
 
+  // Improved method for getting unused tokens with better logic
   getUnusedTokens() {
-    const allTokens = Object.keys(this.getAllDefinedTokens());
-    const usedTokens = Object.keys(this.data.usage);
-    return allTokens.filter(token => !usedTokens.includes(token));
+    const allTokens = this.getAllDefinedTokens();
+    const usedTokens = this.data.usage;
+    
+    // Create a comprehensive mapping of all possible token references
+    const tokenMappings = this.createTokenMappings(allTokens);
+    
+    const unusedTokens = [];
+    const partiallyUsedTokens = [];
+    const indirectlyUsedTokens = [];
+    
+    Object.keys(allTokens).forEach(tokenPath => {
+      const possibleReferences = tokenMappings[tokenPath] || [];
+      
+      // Check if any variation of this token is used
+      const isDirectlyUsed = Object.keys(usedTokens).some(usedToken => 
+        possibleReferences.includes(usedToken) || usedToken === tokenPath
+      );
+      
+      // Check for indirect usage (e.g., through Tailwind defaults)
+      const isIndirectlyUsed = this.checkIndirectUsage(tokenPath, usedTokens);
+      
+      if (!isDirectlyUsed && !isIndirectlyUsed) {
+        // Categorize the unused token
+        const category = this.categorizeUnusedToken(tokenPath, allTokens[tokenPath]);
+        unusedTokens.push({
+          token: tokenPath,
+          category: category.type,
+          reason: category.reason,
+          value: allTokens[tokenPath].value,
+          recommendation: category.recommendation
+        });
+      } else if (isIndirectlyUsed && !isDirectlyUsed) {
+        indirectlyUsedTokens.push({
+          token: tokenPath,
+          usage: 'indirect',
+          value: allTokens[tokenPath].value
+        });
+      }
+    });
+    
+    return {
+      unused: unusedTokens,
+      indirectlyUsed: indirectlyUsedTokens,
+      summary: {
+        totalUnused: unusedTokens.length,
+        safeToRemove: unusedTokens.filter(t => t.recommendation === 'remove').length,
+        reviewNeeded: unusedTokens.filter(t => t.recommendation === 'review').length,
+        keepForSystem: unusedTokens.filter(t => t.recommendation === 'keep').length
+      }
+    };
+  }
+
+  // Create comprehensive token mapping for all possible references
+  createTokenMappings(allTokens) {
+    const mappings = {};
+    
+    Object.keys(allTokens).forEach(tokenPath => {
+      const variations = [];
+      
+      // Original path
+      variations.push(tokenPath);
+      
+      // CSS variable format (with dashes)
+      variations.push(tokenPath.replace(/\./g, '-'));
+      
+      // Extract final segment for Tailwind classes
+      const segments = tokenPath.split('.');
+      if (segments.length > 1) {
+        const lastSegment = segments[segments.length - 1];
+        variations.push(lastSegment);
+        
+        // For colors, add common Tailwind patterns
+        if (tokenPath.includes('colors.')) {
+          const colorName = segments[1]; // primary, secondary, etc.
+          const shade = segments[2];
+          variations.push(`${colorName}-${shade}`);
+          variations.push(`colors.${colorName}.${shade}`);
+        }
+        
+        // For spacing, add common patterns
+        if (tokenPath.includes('spacing.')) {
+          const spaceValue = segments[1];
+          variations.push(`spacing-${spaceValue}`);
+          variations.push(spaceValue);
+        }
+        
+        // For typography
+        if (tokenPath.includes('typography.')) {
+          const typeCategory = segments[1]; // fontSize, fontWeight, etc.
+          const typeValue = segments[2];
+          variations.push(`${typeCategory}.${typeValue}`);
+          variations.push(`typography.${typeCategory}.${typeValue}`);
+        }
+        
+        // For borderRadius
+        if (tokenPath.includes('borderRadius.')) {
+          const radiusValue = segments[1];
+          variations.push(`borderRadius.${radiusValue}`);
+          variations.push(`border-radius-${radiusValue}`);
+        }
+      }
+      
+      mappings[tokenPath] = [...new Set(variations)]; // Remove duplicates
+    });
+    
+    return mappings;
+  }
+
+  // Check for indirect usage (tokens used through system defaults)
+  checkIndirectUsage(tokenPath, usedTokens) {
+    // Check if this token is referenced by other tokens (token references)
+    const tokenValue = this.getAllDefinedTokens()[tokenPath]?.value;
+    if (tokenValue && tokenValue.startsWith('{') && tokenValue.endsWith('}')) {
+      // This is a reference token, might be used indirectly
+      return true;
+    }
+    
+    // Check for system defaults that might use this token
+    if (tokenPath.includes('spacing.0') || tokenPath.includes('opacity.100')) {
+      // These are often used as defaults in CSS frameworks
+      return true;
+    }
+    
+    // Check if this token is used in generated CSS files
+    const cssFiles = ['src/styles/tokens.css', 'tailwind.config.js'];
+    // This would require file reading, simplified for now
+    
+    return false;
+  }
+
+  // Categorize unused tokens for better insights
+  categorizeUnusedToken(tokenPath, tokenData) {
+    const value = tokenData.value;
+    const description = tokenData.description || '';
+    
+    // System/utility tokens
+    if (tokenPath.includes('opacity.0') || 
+        tokenPath.includes('spacing.0') || 
+        tokenPath.includes('borderRadius.DEFAULT')) {
+      return {
+        type: 'system',
+        reason: 'System utility token, may be used indirectly',
+        recommendation: 'keep'
+      };
+    }
+    
+    // Font families (often defined but used through CSS)
+    if (tokenPath.includes('fontFamily')) {
+      return {
+        type: 'system',
+        reason: 'Font family tokens are often used in CSS configuration',
+        recommendation: 'review'
+      };
+    }
+    
+    // Extreme color shades (very light/dark)
+    if (tokenPath.includes('colors.') && 
+        (tokenPath.includes('.50') || tokenPath.includes('.950') || 
+         tokenPath.includes('.900') || tokenPath.includes('.100'))) {
+      return {
+        type: 'design-scale',
+        reason: 'Extreme shade in color scale, may be used for subtle effects',
+        recommendation: 'review'
+      };
+    }
+    
+    // Large spacing values
+    if (tokenPath.includes('spacing.') && 
+        (tokenPath.includes('.20') || tokenPath.includes('.24'))) {
+      return {
+        type: 'design-scale',
+        reason: 'Large spacing value, may be used for layout',
+        recommendation: 'review'
+      };
+    }
+    
+    // Mid-range tokens that are likely truly unused
+    if (tokenPath.includes('colors.') && 
+        (tokenPath.includes('.200') || tokenPath.includes('.300') || 
+         tokenPath.includes('.400') || tokenPath.includes('.800'))) {
+      return {
+        type: 'unused-design',
+        reason: 'Mid-range design token not found in codebase',
+        recommendation: 'remove'
+      };
+    }
+    
+    // Default case
+    return {
+      type: 'unknown',
+      reason: 'Token not detected in codebase scan',
+      recommendation: 'review'
+    };
+  }
+
+  // Enhanced recommendations based on improved unused token analysis
+  generateRecommendations() {
+    const recommendations = [];
+    const unusedAnalysis = this.getUnusedTokens();
+    const changeFreq = this.calculateChangeFrequency();
+    
+    // Improved unused tokens recommendations
+    if (unusedAnalysis.summary.safeToRemove > 0) {
+      recommendations.push({
+        type: 'cleanup',
+        priority: 'medium',
+        message: `Consider removing ${unusedAnalysis.summary.safeToRemove} unused design tokens`,
+        details: unusedAnalysis.unused
+          .filter(t => t.recommendation === 'remove')
+          .slice(0, 5)
+          .map(t => t.token),
+        actionable: true,
+        impact: 'Reduces bundle size and design system complexity'
+      });
+    }
+    
+    if (unusedAnalysis.summary.reviewNeeded > 0) {
+      recommendations.push({
+        type: 'review',
+        priority: 'low',
+        message: `Review ${unusedAnalysis.summary.reviewNeeded} tokens that may be used indirectly`,
+        details: unusedAnalysis.unused
+          .filter(t => t.recommendation === 'review')
+          .slice(0, 5)
+          .map(t => t.token),
+        actionable: false,
+        impact: 'Ensures no important tokens are accidentally removed'
+      });
+    }
+    
+    // System tokens notification
+    if (unusedAnalysis.summary.keepForSystem > 0) {
+      recommendations.push({
+        type: 'info',
+        priority: 'low',
+        message: `${unusedAnalysis.summary.keepForSystem} system tokens are unused but should be kept`,
+        details: unusedAnalysis.unused
+          .filter(t => t.recommendation === 'keep')
+          .slice(0, 3)
+          .map(t => t.token),
+        actionable: false,
+        impact: 'These tokens provide system functionality'
+      });
+    }
+    
+    // Find frequently changing tokens
+    const unstableTokens = changeFreq.filter(item => item.changeCount > 5);
+    if (unstableTokens.length > 0) {
+      recommendations.push({
+        type: 'stability',
+        priority: 'high',
+        message: `${unstableTokens.length} tokens have high change frequency`,
+        details: unstableTokens.slice(0, 3).map(t => t.token),
+        actionable: true,
+        impact: 'Frequent changes may indicate design inconsistency'
+      });
+    }
+    
+    // Check adoption rate
+    const adoptionRate = this.calculateAdoptionRate();
+    if (adoptionRate < 60) {
+      recommendations.push({
+        type: 'adoption',
+        priority: 'medium',
+        message: `Token adoption rate is ${adoptionRate.toFixed(1)}% - consider improving documentation`,
+        details: [],
+        actionable: true,
+        impact: 'Better adoption leads to more consistent design'
+      });
+    }
+    
+    // Check for tokens with very low usage
+    const lowUsageTokens = Object.entries(this.data.usage)
+      .filter(([token, data]) => data.count === 1)
+      .slice(0, 5);
+      
+    if (lowUsageTokens.length > 5) {
+      recommendations.push({
+        type: 'usage',
+        priority: 'low',
+        message: `${lowUsageTokens.length} tokens are used only once - consider if they're necessary`,
+        details: lowUsageTokens.map(([token]) => token),
+        actionable: false,
+        impact: 'Reduces design system complexity'
+      });
+    }
+    
+    return recommendations;
   }
 
   calculateChangeFrequency() {
@@ -246,12 +533,46 @@ class DesignSystemAnalytics {
     const unusedTokens = this.getUnusedTokens();
     const changeFreq = this.calculateChangeFrequency();
     
-    if (unusedTokens.length > 0) {
+    if (unusedTokens.summary.safeToRemove > 0) {
       recommendations.push({
         type: 'cleanup',
         priority: 'medium',
-        message: `Consider removing ${unusedTokens.length} unused tokens`,
-        details: unusedTokens.slice(0, 5)
+        message: `Consider removing ${unusedTokens.summary.safeToRemove} unused design tokens`,
+        details: unusedTokens.unused
+          .filter(t => t.recommendation === 'remove')
+          .slice(0, 5)
+          .map(t => t.token),
+        actionable: true,
+        impact: 'Reduces bundle size and design system complexity'
+      });
+    }
+    
+    if (unusedTokens.summary.reviewNeeded > 0) {
+      recommendations.push({
+        type: 'review',
+        priority: 'low',
+        message: `Review ${unusedTokens.summary.reviewNeeded} tokens that may be used indirectly`,
+        details: unusedTokens.unused
+          .filter(t => t.recommendation === 'review')
+          .slice(0, 5)
+          .map(t => t.token),
+        actionable: false,
+        impact: 'Ensures no important tokens are accidentally removed'
+      });
+    }
+    
+    // System tokens notification
+    if (unusedTokens.summary.keepForSystem > 0) {
+      recommendations.push({
+        type: 'info',
+        priority: 'low',
+        message: `${unusedTokens.summary.keepForSystem} system tokens are unused but should be kept`,
+        details: unusedTokens.unused
+          .filter(t => t.recommendation === 'keep')
+          .slice(0, 3)
+          .map(t => t.token),
+        actionable: false,
+        impact: 'These tokens provide system functionality'
       });
     }
     
@@ -262,7 +583,9 @@ class DesignSystemAnalytics {
         type: 'stability',
         priority: 'high',
         message: `${unstableTokens.length} tokens have high change frequency`,
-        details: unstableTokens.slice(0, 3).map(t => t.token)
+        details: unstableTokens.slice(0, 3).map(t => t.token),
+        actionable: true,
+        impact: 'Frequent changes may indicate design inconsistency'
       });
     }
     
@@ -273,7 +596,25 @@ class DesignSystemAnalytics {
         type: 'adoption',
         priority: 'medium',
         message: `Token adoption rate is ${adoptionRate.toFixed(1)}% - consider improving documentation`,
-        details: []
+        details: [],
+        actionable: true,
+        impact: 'Better adoption leads to more consistent design'
+      });
+    }
+    
+    // Check for tokens with very low usage
+    const lowUsageTokens = Object.entries(this.data.usage)
+      .filter(([token, data]) => data.count === 1)
+      .slice(0, 5);
+      
+    if (lowUsageTokens.length > 5) {
+      recommendations.push({
+        type: 'usage',
+        priority: 'low',
+        message: `${lowUsageTokens.length} tokens are used only once - consider if they're necessary`,
+        details: lowUsageTokens.map(([token]) => token),
+        actionable: false,
+        impact: 'Reduces design system complexity'
       });
     }
     
@@ -436,7 +777,14 @@ class DesignSystemAnalytics {
   calculateAdoptionRate() {
     const totalTokens = Object.keys(this.getAllDefinedTokens()).length;
     const usedTokens = Object.keys(this.data.usage).length;
-    return totalTokens > 0 ? (usedTokens / totalTokens) * 100 : 0;
+    const unusedAnalysis = this.getUnusedTokens();
+    
+    // More nuanced adoption rate calculation
+    const directlyUsed = usedTokens;
+    const indirectlyUsed = unusedAnalysis.indirectlyUsed.length;
+    const effectivelyUsed = directlyUsed + indirectlyUsed;
+    
+    return totalTokens > 0 ? (effectivelyUsed / totalTokens) * 100 : 0;
   }
 
   getTrendingTokens(direction) {

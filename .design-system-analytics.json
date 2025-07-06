@@ -235,7 +235,7 @@
       "category": "typography"
     },
     "typography.fontWeight.bold": {
-      "count": 19,
+      "count": 23,
       "files": [
         "src/App.tsx",
         "src/components/common/TokensExample.tsx",
@@ -249,7 +249,7 @@
       "category": "typography"
     },
     "typography.fontWeight.semibold": {
-      "count": 40,
+      "count": 41,
       "files": [
         "src/App.tsx",
         "src/components/common/Button.tsx",
@@ -286,7 +286,7 @@
       "category": "colors"
     },
     "typography.fontSize.sm": {
-      "count": 76,
+      "count": 81,
       "files": [
         "src/components/common/Button.tsx",
         "src/components/common/TokensExample.tsx",
@@ -310,7 +310,7 @@
       "category": "typography"
     },
     "borderRadius.lg": {
-      "count": 83,
+      "count": 89,
       "files": [
         "src/components/common/Button.tsx",
         "src/components/common/TokensExample.tsx",
@@ -325,7 +325,7 @@
       "category": "borderRadius"
     },
     "typography.fontSize.2xl": {
-      "count": 21,
+      "count": 25,
       "files": [
         "src/components/common/TokensExample.tsx",
         "src/components/design-system/DesignSystemDashboard.tsx",
@@ -338,9 +338,10 @@
       "category": "typography"
     },
     "typography.fontSize.xs": {
-      "count": 21,
+      "count": 24,
       "files": [
         "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
         "src/components/design-system/DesignSystemManager.tsx",
         "src/components/examples/TokensShowcase.tsx",
         "src/index.css",
@@ -350,7 +351,7 @@
       "category": "typography"
     },
     "typography.fontWeight.medium": {
-      "count": 75,
+      "count": 77,
       "files": [
         "src/components/common/TokensExample.tsx",
         "src/components/design-system/DesignSystemDashboard.tsx",
@@ -375,7 +376,7 @@
       "category": "colors"
     },
     "typography.fontSize.xl": {
-      "count": 10,
+      "count": 11,
       "files": [
         "src/components/design-system/DesignSystemDashboard.tsx",
         "src/components/examples/TokensShowcase.tsx",
@@ -572,5 +573,5 @@
   },
   "adoption": {},
   "history": [],
-  "lastScan": "2025-07-06T17:51:31.620Z"
+  "lastScan": "2025-07-06T18:32:43.692Z"
 }

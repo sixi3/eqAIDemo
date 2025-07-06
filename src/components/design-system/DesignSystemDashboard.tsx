@@ -25,6 +25,29 @@ interface Recommendation {
   details: string[];
 }
 
+interface UnusedToken {
+  token: string;
+  category: string;
+  reason: string;
+  value: string;
+  recommendation: 'remove' | 'review' | 'keep';
+}
+
+interface UnusedTokensAnalysis {
+  unused: UnusedToken[];
+  indirectlyUsed: Array<{
+    token: string;
+    usage: string;
+    value: string;
+  }>;
+  summary: {
+    totalUnused: number;
+    safeToRemove: number;
+    reviewNeeded: number;
+    keepForSystem: number;
+  };
+}
+
 interface AnalyticsData {
   metadata: {
     generatedAt: string;
@@ -39,6 +62,7 @@ interface AnalyticsData {
     lastUpdate: string;
     mostUsedTokens: Array<{ token: string } & TokenUsage>;
     unusedTokens: string[];
+    unusedTokensAnalysis: UnusedTokensAnalysis;
     adoptionRate: number;
   };
   changeFrequency: ChangeItem[];
@@ -84,6 +108,19 @@ const DesignSystemDashboard: React.FC = () => {
             { token: 'typography.fontSize.base', count: 32, files: ['src/components/Button.tsx'], type: 'typography', category: 'typography' }
           ],
           unusedTokens: ['colors.secondary.50', 'spacing.24'],
+          unusedTokensAnalysis: {
+            unused: [
+              { token: 'colors.secondary.50', category: 'design-scale', reason: 'Extreme shade in color scale', value: '#f9fafb', recommendation: 'review' },
+              { token: 'spacing.24', category: 'design-scale', reason: 'Large spacing value', value: '6rem', recommendation: 'review' }
+            ],
+            indirectlyUsed: [],
+            summary: {
+              totalUnused: 2,
+              safeToRemove: 0,
+              reviewNeeded: 2,
+              keepForSystem: 0
+            }
+          },
           adoptionRate: 78.8
         },
         changeFrequency: [
@@ -244,6 +281,74 @@ const DesignSystemDashboard: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Unused Tokens Analysis */}
+        {analytics.summary.unusedTokensAnalysis.unused.length > 0 && (
+          <div className="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 className="text-xl font-semibold mb-4">🔍 Unused Tokens Analysis</h2>
+            
+            {/* Summary Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+              <div className="bg-red-50 rounded-lg p-4">
+                <div className="text-2xl font-bold text-red-600">
+                  {analytics.summary.unusedTokensAnalysis.summary.safeToRemove}
+                </div>
+                <div className="text-sm text-red-700">Safe to Remove</div>
+              </div>
+              <div className="bg-yellow-50 rounded-lg p-4">
+                <div className="text-2xl font-bold text-yellow-600">
+                  {analytics.summary.unusedTokensAnalysis.summary.reviewNeeded}
+                </div>
+                <div className="text-sm text-yellow-700">Need Review</div>
+              </div>
+              <div className="bg-green-50 rounded-lg p-4">
+                <div className="text-2xl font-bold text-green-600">
+                  {analytics.summary.unusedTokensAnalysis.summary.keepForSystem}
+                </div>
+                <div className="text-sm text-green-700">Keep (System)</div>
+              </div>
+              <div className="bg-blue-50 rounded-lg p-4">
+                <div className="text-2xl font-bold text-blue-600">
+                  {analytics.summary.unusedTokensAnalysis.indirectlyUsed.length}
+                </div>
+                <div className="text-sm text-blue-700">Indirectly Used</div>
+              </div>
+            </div>
+
+            {/* Detailed List */}
+            <div className="space-y-3">
+              {analytics.summary.unusedTokensAnalysis.unused.map((token, index) => (
+                <div key={index} className={`p-4 rounded-lg border-l-4 ${
+                  token.recommendation === 'remove' ? 'bg-red-50 border-red-400' :
+                  token.recommendation === 'review' ? 'bg-yellow-50 border-yellow-400' :
+                  'bg-green-50 border-green-400'
+                }`}>
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="font-medium text-gray-900">{token.token}</div>
+                      <div className="text-sm text-gray-600 mt-1">{token.reason}</div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        Value: <code className="bg-gray-100 px-1 rounded">{token.value}</code>
+                      </div>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <span className={`px-2 py-1 rounded text-xs font-medium ${
+                        token.recommendation === 'remove' ? 'bg-red-100 text-red-700' :
+                        token.recommendation === 'review' ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-green-100 text-green-700'
+                      }`}>
+                        {token.recommendation}
+                      </span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                        {token.category}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Recommendations and Trends */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
