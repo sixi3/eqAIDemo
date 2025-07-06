@@ -1,6 +1,5 @@
 import { DESIGN_SYSTEM_THEME } from './design-system';
 import { designSystemTracker } from './design-system-sync';
-import type { DesignSystemTheme } from '../types/design-system';
 
 // Figma API Configuration
 interface FigmaConfig {
@@ -59,11 +58,11 @@ export class FigmaDesignSystemSync {
     };
   }
 
-  // Convert Figma RGB to hex
-  private figmaRgbToHex(r: number, g: number, b: number): string {
-    const toHex = (n: number) => Math.round(n * 255).toString(16).padStart(2, '0');
-    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-  }
+  // Convert Figma RGB to hex (currently unused but kept for future use)
+  // private _figmaRgbToHex(r: number, g: number, b: number): string {
+  //   const toHex = (n: number) => Math.round(n * 255).toString(16).padStart(2, '0');
+  //   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+  // }
 
   // Generate Figma color styles from design system
   private generateFigmaColorStyles(): FigmaColorStyle[] {

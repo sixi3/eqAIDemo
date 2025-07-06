@@ -239,12 +239,12 @@ export class DesignSystemTracker {
     
     // Generate updated files
     if (DEFAULT_CONFIG.syncTargets.includes('tailwind')) {
-      const newConfig = generateTailwindConfig(DESIGN_SYSTEM_THEME);
+      generateTailwindConfig(DESIGN_SYSTEM_THEME);
       console.log('📝 Generated new Tailwind config');
     }
     
     if (DEFAULT_CONFIG.syncTargets.includes('css')) {
-      const newCSS = generateCSSVariables(DESIGN_SYSTEM_THEME);
+      generateCSSVariables(DESIGN_SYSTEM_THEME);
       console.log('🎨 Generated new CSS variables');
     }
     

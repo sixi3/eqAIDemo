@@ -10,9 +10,8 @@ import type { VoiceState, ButtonVariant, ButtonSize } from '../../types/design-s
 import DesignSystemManager from './DesignSystemManager';
 
 export const DesignSystemShowcase: React.FC = () => {
-  const [voiceState, setVoiceState] = useState<VoiceState>('idle');
+  const [, setVoiceState] = useState<VoiceState>('idle');
   const [inputValue, setInputValue] = useState('');
-  const [hasInputError, setHasInputError] = useState(false);
   const [isManagerOpen, setIsManagerOpen] = useState(false);
 
   const colorPalettes = [

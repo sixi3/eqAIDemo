@@ -21,7 +21,7 @@ export default defineConfig({
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
           'animation-vendor': ['framer-motion'],
-          'demo-flows': ['./src/flows/OnboardingFlow', './src/flows/ChatDemoFlow'],
+          'demo-flows': ['./src/flows/OnboardingFlow'],
         },
       },
     },

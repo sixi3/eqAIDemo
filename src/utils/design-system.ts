@@ -403,7 +403,7 @@ export const generateResponsiveClasses = (property: string, values: Record<strin
 };
 
 // Animation Utilities
-export const createCustomAnimation = (name: string, keyframes: Record<string, Record<string, string>>, duration: string = '1s', timing: string = 'ease-in-out', iteration: string = 'infinite'): string => {
+export const createCustomAnimation = (name: string, _keyframes: Record<string, Record<string, string>>, duration: string = '1s', timing: string = 'ease-in-out', iteration: string = 'infinite'): string => {
   return `${name} ${duration} ${timing} ${iteration}`;
 };
 
