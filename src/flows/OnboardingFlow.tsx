@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../components/common/Button';
-import { VoiceButton, VoiceState } from '../components/voice/VoiceButton';
+import { VoiceButton, VoiceState } from '../components/voice';
 
 interface OnboardingStep {
   id: string;
