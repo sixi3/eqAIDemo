@@ -1,0 +1,328 @@
+{
+  "metadata": {
+    "generatedAt": "2025-07-06T17:51:31.622Z",
+    "period": "2025-06-06 to 2025-07-06",
+    "version": "0.1.0"
+  },
+  "summary": {
+    "totalTokens": 65,
+    "activeTokens": 55,
+    "totalChanges": 1,
+    "uniqueContributors": 1,
+    "lastUpdate": "2025-07-06T17:51:23.113Z",
+    "mostUsedTokens": [
+      {
+        "token": "borderRadius.lg",
+        "count": 83,
+        "files": [
+          "src/components/common/Button.tsx",
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/design-system/DesignSystemShowcase.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "border-radius",
+        "category": "borderRadius"
+      },
+      {
+        "token": "typography.fontSize.sm",
+        "count": 76,
+        "files": [
+          "src/components/common/Button.tsx",
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-size",
+        "category": "typography"
+      },
+      {
+        "token": "typography.fontWeight.medium",
+        "count": 75,
+        "files": [
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-weight",
+        "category": "typography"
+      },
+      {
+        "token": "typography.fontWeight.semibold",
+        "count": 40,
+        "files": [
+          "src/App.tsx",
+          "src/components/common/Button.tsx",
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-weight",
+        "category": "typography"
+      },
+      {
+        "token": "colors.primary.500",
+        "count": 25,
+        "files": [
+          "src/App.tsx",
+          "src/components/common/Button.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/design-system/DesignSystemShowcase.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/components/voice/VoiceButton.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "tailwind-bg",
+        "category": "colors"
+      },
+      {
+        "token": "borderRadius.full",
+        "count": 25,
+        "files": [
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/design-system/DesignSystemShowcase.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/components/voice/VoiceButton.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "border-radius",
+        "category": "borderRadius"
+      },
+      {
+        "token": "typography.fontSize.2xl",
+        "count": 21,
+        "files": [
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-size",
+        "category": "typography"
+      },
+      {
+        "token": "typography.fontSize.xs",
+        "count": 21,
+        "files": [
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-size",
+        "category": "typography"
+      },
+      {
+        "token": "typography.fontWeight.bold",
+        "count": 19,
+        "files": [
+          "src/App.tsx",
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-weight",
+        "category": "typography"
+      },
+      {
+        "token": "typography.fontSize.lg",
+        "count": 18,
+        "files": [
+          "src/App.tsx",
+          "src/components/common/Button.tsx",
+          "src/components/common/TokensExample.tsx",
+          "src/components/design-system/DesignSystemDashboard.tsx",
+          "src/components/design-system/DesignSystemManager.tsx",
+          "src/components/examples/TokensShowcase.tsx",
+          "src/index.css",
+          "src/utils/design-system.ts"
+        ],
+        "type": "typography-size",
+        "category": "typography"
+      }
+    ],
+    "unusedTokens": [
+      "colors.primary.200",
+      "colors.primary.300",
+      "colors.primary.400",
+      "colors.primary.800",
+      "colors.primary.900",
+      "colors.primary.950",
+      "colors.secondary.200",
+      "colors.secondary.300",
+      "colors.secondary.400",
+      "colors.secondary.800",
+      "colors.secondary.900",
+      "colors.secondary.950",
+      "spacing.0",
+      "spacing.1",
+      "spacing.2",
+      "spacing.3",
+      "spacing.4",
+      "spacing.5",
+      "spacing.6",
+      "spacing.8",
+      "spacing.10",
+      "spacing.12",
+      "spacing.16",
+      "spacing.20",
+      "spacing.24",
+      "borderRadius.DEFAULT",
+      "typography.fontFamily.primary",
+      "typography.fontFamily.mono",
+      "opacity.0",
+      "opacity.25",
+      "opacity.50",
+      "opacity.75",
+      "opacity.100"
+    ],
+    "adoptionRate": 84.61538461538461
+  },
+  "changeFrequency": [
+    {
+      "token": "colors.primary.500",
+      "changes": [
+        {
+          "type": "modified",
+          "timestamp": "2025-07-06T17:51:23.113Z",
+          "author": "sixi3"
+        }
+      ],
+      "changeCount": 1,
+      "lastChanged": "2025-07-06T17:51:23.113Z"
+    }
+  ],
+  "adoptionMetrics": [
+    {
+      "month": "2025-07",
+      "tokensModified": 1,
+      "totalTokens": 65,
+      "adoptionRate": 1.5384615384615385
+    }
+  ],
+  "categoryBreakdown": {
+    "other": {
+      "count": 33,
+      "tokens": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "8",
+        "10",
+        "12",
+        "16",
+        "20",
+        "24",
+        "200",
+        "500",
+        "shadow-md",
+        "transition-duration-normal"
+      ]
+    },
+    "colors": {
+      "count": 84,
+      "tokens": [
+        "colors.primary.500",
+        "colors.primary.600",
+        "colors.primary.700",
+        "colors.secondary.500",
+        "colors.secondary.600",
+        "colors.primary.50",
+        "colors.primary.100",
+        "color-primary-500",
+        "color-secondary-400",
+        "color-neutral-50",
+        "color-neutral-200",
+        "colors.secondary.100",
+        "colors.secondary.700",
+        "colors.secondary.50"
+      ]
+    },
+    "typography": {
+      "count": 303,
+      "tokens": [
+        "typography.fontSize.3xl",
+        "typography.fontSize.lg",
+        "typography.fontWeight.bold",
+        "typography.fontWeight.semibold",
+        "typography.fontSize.sm",
+        "typography.fontSize.base",
+        "typography.fontSize.2xl",
+        "typography.fontSize.xs",
+        "typography.fontWeight.medium",
+        "typography.fontSize.xl",
+        "typography.fontSize.4xl",
+        "typography.fontSize.6xl",
+        "typography.fontSize.5xl",
+        "typography.fontWeight.normal"
+      ]
+    },
+    "borderRadius": {
+      "count": 144,
+      "tokens": [
+        "borderRadius.xl",
+        "borderRadius.lg",
+        "borderRadius.full",
+        "borderRadius.2xl",
+        "borderRadius.none",
+        "borderRadius.sm",
+        "borderRadius.md",
+        "borderRadius.3xl",
+        "border-radius-lg"
+      ]
+    },
+    "spacing": {
+      "count": 4,
+      "tokens": [
+        "spacing-6"
+      ]
+    }
+  },
+  "recommendations": [
+    {
+      "type": "cleanup",
+      "priority": "medium",
+      "message": "Consider removing 33 unused tokens",
+      "details": [
+        "colors.primary.200",
+        "colors.primary.300",
+        "colors.primary.400",
+        "colors.primary.800",
+        "colors.primary.900"
+      ]
+    }
+  ],
+  "trends": {
+    "recentActivity": 1,
+    "trendsUp": [],
+    "trendsDown": [],
+    "newTokens": 0,
+    "modifiedTokens": 1
+  }
+}

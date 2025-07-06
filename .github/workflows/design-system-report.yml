@@ -1,0 +1,57 @@
+name: Design System Weekly Report
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Every Monday at 9 AM UTC
+  workflow_dispatch: # Allow manual triggering
+    inputs:
+      format:
+        description: 'Report format'
+        required: false
+        default: 'html'
+        type: choice
+        options:
+          - html
+          - json
+          - csv
+      notify_slack:
+        description: 'Send Slack notification'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need full history for analytics
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Collect analytics data
+        run: npm run analytics:collect
+        
+      - name: Generate analytics report
+        run: |
+          FORMAT=${{ github.event.inputs.format || 'html' }}
+          npm run analytics:report -- --format=$FORMAT --console
+        
+      - name: Archive analytics data
+        uses: actions/upload-artifact@v4
+        with:
+          name: design-system-analytics-${{ github.run_number }}
+          path: |
+            .design-system-analytics.json
+            reports/
+          retention-days: 90 

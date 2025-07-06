@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 // Import flows
 import OnboardingFlow from './flows/OnboardingFlow';
 import DesignSystemShowcase from './components/design-system/DesignSystemShowcase';
+import DesignSystemDashboard from './components/design-system/DesignSystemDashboard';
 // import ChatDemoFlow from './flows/ChatDemoFlow';
 
 const App: FC = () => {
@@ -13,6 +14,9 @@ const App: FC = () => {
       <Routes>
         {/* Design System Showcase - Full Screen */}
         <Route path="/design-system" element={<DesignSystemShowcase />} />
+        
+        {/* Analytics Dashboard - Full Screen */}
+        <Route path="/analytics" element={<DesignSystemDashboard />} />
         
         {/* Phone Container Routes */}
         <Route path="/*" element={
@@ -81,6 +85,14 @@ const WelcomeScreen: FC = () => {
           onClick={() => window.location.href = '/design-system'}
         >
           View Design System
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-full bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-purple-700 transition-colors"
+          onClick={() => window.location.href = '/analytics'}
+        >
+          📊 Analytics Dashboard
         </motion.button>
       </div>
     </motion.div>

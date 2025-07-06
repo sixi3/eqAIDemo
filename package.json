@@ -22,11 +22,18 @@
     "tokens:sync": "node scripts/tokens-auto-sync.js",
     "tokens:watch": "chokidar 'tokens.json' -c 'npm run tokens:sync'",
     "tokens:validate": "node scripts/update-tokens.js validate",
-    "dev:tokens": "concurrently \"npm run dev\" \"npm run tokens:watch\""
+    "dev:tokens": "concurrently \"npm run dev\" \"npm run tokens:watch\"",
+    "analytics:collect": "node scripts/collect-analytics.js",
+    "analytics:report": "node scripts/generate-report.js",
+    "analytics:dashboard": "vite --open /analytics",
+    "analytics:export": "node scripts/export-analytics.js",
+    "analytics:export:csv": "node scripts/export-analytics.js --format=csv",
+    "analytics:export:html": "node scripts/export-analytics.js --format=html"
   },
   "dependencies": {
     "clsx": "^2.0.0",
     "framer-motion": "^10.16.0",
+    "lottie-react": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
@@ -50,4 +57,4 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   }
-} 
+}

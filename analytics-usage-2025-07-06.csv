@@ -1,0 +1,12 @@
+Token,Usage Count,Files Count,Category,Type
+"borderRadius.lg",83,8,"borderRadius","border-radius"
+"typography.fontSize.sm",76,7,"typography","typography-size"
+"typography.fontWeight.medium",75,6,"typography","typography-weight"
+"typography.fontWeight.semibold",40,8,"typography","typography-weight"
+"colors.primary.500",25,9,"colors","tailwind-bg"
+"borderRadius.full",25,7,"borderRadius","border-radius"
+"typography.fontSize.2xl",21,6,"typography","typography-size"
+"typography.fontSize.xs",21,5,"typography","typography-size"
+"typography.fontWeight.bold",19,7,"typography","typography-weight"
+"typography.fontSize.lg",18,8,"typography","typography-size"
+

@@ -1,0 +1,576 @@
+{
+  "tokenChanges": [
+    {
+      "timestamp": "2025-07-06T17:51:23.113Z",
+      "type": "modified",
+      "token": "colors.primary.500",
+      "oldValue": "#00b945",
+      "newValue": "#00bc48",
+      "author": "sixi3",
+      "commit": "14fa6f1",
+      "category": "colors"
+    }
+  ],
+  "usage": {
+    "0": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "1": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "2": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "3": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "4": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "5": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "6": {
+      "count": 5,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx",
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "8": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "10": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "12": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "16": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "20": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "24": {
+      "count": 1,
+      "files": [
+        "src/styles/tokens.css"
+      ],
+      "type": "spacing-token",
+      "category": "other"
+    },
+    "200": {
+      "count": 4,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css"
+      ],
+      "type": "tailwind-border",
+      "category": "other"
+    },
+    "500": {
+      "count": 10,
+      "files": [
+        "src/components/common/Button.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-border",
+      "category": "other"
+    },
+    "colors.primary.500": {
+      "count": 25,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/Button.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/components/voice/VoiceButton.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-bg",
+      "category": "colors"
+    },
+    "colors.primary.600": {
+      "count": 12,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/Button.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-bg",
+      "category": "colors"
+    },
+    "colors.primary.700": {
+      "count": 7,
+      "files": [
+        "src/App.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-bg",
+      "category": "colors"
+    },
+    "colors.secondary.500": {
+      "count": 9,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/Button.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/voice/VoiceButton.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-secondary",
+      "category": "colors"
+    },
+    "colors.secondary.600": {
+      "count": 4,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/Button.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-secondary",
+      "category": "colors"
+    },
+    "typography.fontSize.3xl": {
+      "count": 5,
+      "files": [
+        "src/App.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontSize.lg": {
+      "count": 18,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/Button.tsx",
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontWeight.bold": {
+      "count": 19,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-weight",
+      "category": "typography"
+    },
+    "typography.fontWeight.semibold": {
+      "count": 40,
+      "files": [
+        "src/App.tsx",
+        "src/components/common/Button.tsx",
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-weight",
+      "category": "typography"
+    },
+    "borderRadius.xl": {
+      "count": 16,
+      "files": [
+        "src/App.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "colors.primary.50": {
+      "count": 6,
+      "files": [
+        "src/components/common/Button.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-bg",
+      "category": "colors"
+    },
+    "typography.fontSize.sm": {
+      "count": 76,
+      "files": [
+        "src/components/common/Button.tsx",
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontSize.base": {
+      "count": 5,
+      "files": [
+        "src/components/common/Button.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "borderRadius.lg": {
+      "count": 83,
+      "files": [
+        "src/components/common/Button.tsx",
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "typography.fontSize.2xl": {
+      "count": 21,
+      "files": [
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontSize.xs": {
+      "count": 21,
+      "files": [
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontWeight.medium": {
+      "count": 75,
+      "files": [
+        "src/components/common/TokensExample.tsx",
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-weight",
+      "category": "typography"
+    },
+    "colors.primary.100": {
+      "count": 8,
+      "files": [
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-bg",
+      "category": "colors"
+    },
+    "typography.fontSize.xl": {
+      "count": 10,
+      "files": [
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "borderRadius.full": {
+      "count": 25,
+      "files": [
+        "src/components/design-system/DesignSystemDashboard.tsx",
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/components/voice/VoiceButton.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "borderRadius.2xl": {
+      "count": 12,
+      "files": [
+        "src/components/design-system/DesignSystemManager.tsx",
+        "src/components/design-system/DesignSystemShowcase.tsx",
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "borderRadius.none": {
+      "count": 1,
+      "files": [
+        "src/components/design-system/DesignSystemShowcase.tsx"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "borderRadius.sm": {
+      "count": 1,
+      "files": [
+        "src/components/design-system/DesignSystemShowcase.tsx"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "borderRadius.md": {
+      "count": 1,
+      "files": [
+        "src/components/design-system/DesignSystemShowcase.tsx"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "borderRadius.3xl": {
+      "count": 1,
+      "files": [
+        "src/components/design-system/DesignSystemShowcase.tsx"
+      ],
+      "type": "border-radius",
+      "category": "borderRadius"
+    },
+    "color-primary-500": {
+      "count": 3,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "colors"
+    },
+    "border-radius-lg": {
+      "count": 4,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "borderRadius"
+    },
+    "spacing-6": {
+      "count": 4,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "spacing"
+    },
+    "color-secondary-400": {
+      "count": 2,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "colors"
+    },
+    "color-neutral-50": {
+      "count": 2,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "colors"
+    },
+    "color-neutral-200": {
+      "count": 1,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "colors"
+    },
+    "shadow-md": {
+      "count": 1,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "other"
+    },
+    "transition-duration-normal": {
+      "count": 1,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "css-variable",
+      "category": "other"
+    },
+    "colors.secondary.100": {
+      "count": 2,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx"
+      ],
+      "type": "tailwind-secondary",
+      "category": "colors"
+    },
+    "typography.fontSize.4xl": {
+      "count": 3,
+      "files": [
+        "src/components/examples/TokensShowcase.tsx",
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "colors.secondary.700": {
+      "count": 2,
+      "files": [
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "tailwind-secondary",
+      "category": "colors"
+    },
+    "colors.secondary.50": {
+      "count": 1,
+      "files": [
+        "src/index.css"
+      ],
+      "type": "tailwind-secondary",
+      "category": "colors"
+    },
+    "typography.fontSize.6xl": {
+      "count": 2,
+      "files": [
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontSize.5xl": {
+      "count": 2,
+      "files": [
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-size",
+      "category": "typography"
+    },
+    "typography.fontWeight.normal": {
+      "count": 6,
+      "files": [
+        "src/index.css",
+        "src/utils/design-system.ts"
+      ],
+      "type": "typography-weight",
+      "category": "typography"
+    }
+  },
+  "adoption": {},
+  "history": [],
+  "lastScan": "2025-07-06T17:51:31.620Z"
+}

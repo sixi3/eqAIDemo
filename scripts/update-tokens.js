@@ -5,9 +5,13 @@ import path from 'path';
 import crypto from 'crypto';
 import { fileURLToPath } from 'url';
 import { performance } from 'perf_hooks';
+import DesignSystemAnalytics from './design-analytics.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Initialize analytics
+const analytics = new DesignSystemAnalytics();
 
 // Configuration
 const CONFIG = {
@@ -608,6 +612,20 @@ async function updateTokens(options = {}) {
     } catch (parseError) {
       throw new Error(`Invalid JSON in tokens.json: ${parseError.message}`);
     }
+
+    // Track token changes for analytics
+    const oldTokens = cache.previousTokens || {};
+    if (Object.keys(oldTokens).length > 0) {
+      const changes = analytics.compareTokens(oldTokens, tokens);
+      changes.forEach(change => analytics.trackTokenChange(change));
+      
+      if (changes.length > 0) {
+        logger.info(`📊 Tracked ${changes.length} token changes for analytics`);
+      }
+    }
+    
+    // Store current tokens for next comparison
+    cache.previousTokens = JSON.parse(JSON.stringify(tokens));
 
     // Validate tokens structure
     logger.info('Validating token structure...');
