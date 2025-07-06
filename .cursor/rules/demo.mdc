@@ -1,0 +1,84 @@
+---
+description: 
+globs: *.tsx, src/flows/**, src/components/**/Demo*, **/*demo*, **/*flow*, **/*onboarding*
+alwaysApply: false
+---
+# Demo Flow Guidelines
+
+## Demo Architecture
+- Create self-contained flow components that can run independently
+- Implement demo controls (play, pause, restart, skip)
+- Design flows that tell a compelling product story
+- Build in flexibility for different demo scenarios
+- Create smooth transitions between demo sections
+
+## Flow Structure
+```typescript
+interface DemoFlow {
+  id: string;
+  title: string;
+  description: string;
+  duration: number;
+  steps: DemoStep[];
+  autoAdvance: boolean;
+}
+
+interface DemoStep {
+  id: string;
+  type: 'user-input' | 'assistant-response' | 'ui-interaction';
+  content: string | JSX.Element;
+  duration: number;
+  animation?: string;
+}
+```
+
+## Onboarding Flow Requirements
+- Welcome screen with compelling value proposition
+- Voice permission request with clear explanation
+- Personality selection or customization
+- Quick tutorial on key interactions
+- Smooth transition to main experience
+
+## Chat Demo Flow Requirements
+- Pre-scripted conversation that showcases capabilities
+- Natural conversation pacing with realistic delays
+- Visual representation of AI thinking and responding
+- Multiple conversation branches for different demo scenarios
+- Easy reset and replay functionality
+
+## Demo Controls
+- Global demo state management
+- Progress indicators for complex flows
+- Skip ahead/go back functionality
+- Pause and resume capabilities
+- Demo speed controls (1x, 1.5x, 2x)
+
+## Presentation Optimization
+- Design for various screen sizes and aspect ratios
+- Ensure text is readable in video recordings
+- Use high contrast colors for accessibility
+- Implement smooth animations that work well in screen capture
+- Create export functionality for demo recordings
+
+## Data Management
+```typescript
+// Demo data structure
+interface DemoData {
+  conversations: ConversationScript[];
+  userProfiles: UserProfile[];
+  responses: AIResponse[];
+  timings: TimingConfig;
+}
+
+// Mock data patterns
+const createMockConversation = (scenario: string): ConversationScript => {
+  // Generate realistic conversation data
+};
+```
+
+## Error Handling in Demos
+- Graceful fallbacks for all interactive elements
+- Clear error recovery paths
+- Backup demo content for live presentations
+- Offline mode for unreliable internet environments
+- Debug mode for troubleshooting during demos

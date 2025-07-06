@@ -1,0 +1,59 @@
+---
+description: 
+globs: *.tsx, src/components/animations/**, src/hooks/useAnimations.ts, **/*animation*, **/motion*, **/framer*
+alwaysApply: false
+---
+# Animation Guidelines
+
+## Animation Philosophy
+- Prioritize 60fps performance over complex effects
+- Use CSS transitions and transforms for simple animations
+- Leverage Framer Motion for complex orchestrated animations
+- Create animation presets for consistent timing and easing
+- Design animations that enhance storytelling during demos
+
+## Performance Requirements
+- All animations must maintain 60fps on modern browsers
+- Use transform and opacity properties for hardware acceleration
+- Implement proper will-change CSS property usage
+- Avoid animating layout properties (width, height, margin, padding)
+- Use requestAnimationFrame for JavaScript-driven animations
+
+## Animation Library Stack
+- **Framer Motion**: Complex component animations and orchestration
+- **CSS Transitions**: Simple hover and focus states
+- **Lottie**: Complex illustrations and micro-interactions
+- **React Spring**: Physics-based animations when needed
+
+## Animation Patterns
+- **Entrance**: Fade in with slight scale (scale: 0.95 → 1)
+- **Exit**: Fade out with scale down (scale: 1 → 0.95)
+- **Voice Active**: Pulsing glow effect with scale variation
+- **Loading**: Smooth skeleton animations with shimmer
+- **Transitions**: Page transitions with slide and fade
+
+## Implementation Standards
+```typescript
+// Animation configuration object
+const animationConfig = {
+  duration: 0.3,
+  ease: [0.4, 0, 0.2, 1], // Material Design easing
+  initial: { opacity: 0, scale: 0.95 },
+  animate: { opacity: 1, scale: 1 },
+  exit: { opacity: 0, scale: 0.95 }
+};
+
+// Custom hook pattern
+const useVoiceAnimation = () => {
+  const [isActive, setIsActive] = useState(false);
+  // Animation logic
+  return { isActive, controls, variants };
+};
+```
+
+## Demo-Specific Requirements
+- All animations should complete within 500ms for demo pacing
+- Provide animation skip/fast-forward for quick demos
+- Implement preview modes for testing animation sequences
+- Create animation debug tools for development
+- Design animations that work well in screen recordings

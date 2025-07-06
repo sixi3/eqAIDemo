@@ -1,0 +1,55 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# React Development Guidelines
+
+## Component Architecture
+- Use functional components with hooks exclusively
+- Implement proper TypeScript interfaces for all props
+- Use React.memo for performance-critical components
+- Create compound components for complex UI patterns
+- Leverage custom hooks for reusable logic
+
+## Performance Optimization
+- Use React.lazy for code splitting demo flows
+- Implement proper memoization with useMemo and useCallback
+- Optimize re-renders by minimizing prop changes
+- Use refs for DOM manipulation in animations
+- Implement proper cleanup in useEffect hooks
+
+## State Management Patterns
+- Use useState for local component state
+- Implement useContext for demo flow state
+- Use useReducer for complex state transitions
+- Create custom hooks for voice and animation state
+- Avoid prop drilling with proper context design
+
+## Error Handling
+- Implement error boundaries for each demo flow
+- Use proper try/catch in async operations
+- Provide fallback UI for failed animations
+- Handle voice API errors gracefully
+- Log errors for debugging during demos
+
+## Component Structure Template
+```typescript
+interface ComponentProps {
+  // Props interface
+}
+
+export const Component: React.FC<ComponentProps> = React.memo(({ 
+  // Destructured props
+}) => {
+  // Hooks
+  // Event handlers
+  // Render logic
+  
+  return (
+    // JSX with proper TypeScript
+  );
+});
+
+Component.displayName = 'Component';
+```

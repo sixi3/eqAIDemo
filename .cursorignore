@@ -1,0 +1,43 @@
+# Environment and secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Build outputs
+/dist/
+/build/
+/.next/
+/out/
+
+# Dependencies
+/node_modules/
+/.pnp/
+.pnp.js
+
+# Audio and media files (large)
+/public/audio/samples/*.wav
+/public/audio/samples/*.mp3
+*.mov
+*.mp4
+*.avi
+
+# Development files
+.DS_Store
+*.log
+/logs/
+/tmp/
+/.vscode/
+
+# Test coverage
+/coverage/
+/.nyc_output/
+
+# Animation assets (generated)
+/src/assets/animations/generated/
+*.lottie.backup
+
+# Demo recordings
+/recordings/
+/demo-exports/
+*.screen-recording 

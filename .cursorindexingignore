@@ -1,0 +1,15 @@
+# Documentation archives
+/docs/archived/
+/docs/legacy/
+
+# Large demo assets
+/public/audio/samples/
+/src/assets/large-animations/
+
+# Generated files
+/src/types/generated/
+*.d.ts.backup
+
+# Test data
+/src/utils/test-data/
+/src/mock-data/archive/ 

@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# AI Voice Assistant Prototype - Core Guidelines
+
+## Project Overview
+This is an interactive React prototype for an AI voice assistant focused on beautiful animations and smooth demo experiences. The goal is to create compelling user flows that showcase the assistant's capabilities in a browser-ready format.
+
+## Core Principles
+- Prioritize smooth, performant animations over complex features
+- Design for demo presentation (clear visual hierarchy, engaging interactions)
+- Build modular components that can be easily composed into different flows
+- Optimize for browser performance and responsiveness
+- Focus on user experience storytelling through interactive elements
+
+## Architecture Guidelines
+- Use functional components with TypeScript throughout
+- Implement proper state management with Context API for demo flows
+- Create reusable animation primitives and components
+- Separate demo logic from core UI components
+- Use proper error boundaries for demo reliability
+
+## Code Standards
+- Use TypeScript strict mode with proper type definitions
+- Follow React best practices (hooks rules, proper dependencies)
+- Implement consistent naming conventions (PascalCase for components, camelCase for functions)
+- Use ESLint and Prettier for code formatting
+- Write self-documenting code with clear variable names
+
+## File Organization
+- Group related components in feature directories
+- Use index.ts files for clean exports
+- Keep demo data separate from component logic
+- Organize animations by type/purpose
+- Maintain clear separation between flows and components

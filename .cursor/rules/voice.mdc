@@ -1,0 +1,58 @@
+---
+description: 
+globs: *.tsx, src/components/voice/**, src/hooks/useVoice.ts, **/*voice*, **/*audio*, **/*speech*, **/*microphone*
+alwaysApply: false
+---
+# Voice Interaction Guidelines
+
+## Voice UX Principles
+- Provide clear visual feedback for all voice states
+- Implement smooth transitions between listening/speaking/idle states
+- Design for both voice-first and visual-first users
+- Create compelling visual representations of audio activity
+- Handle edge cases gracefully (no microphone, poor audio quality)
+
+## Audio Implementation
+- Use Web Audio API for real-time audio visualization
+- Implement proper microphone permission handling
+- Create smooth audio level animations and waveforms
+- Use Web Speech API for speech recognition (with fallbacks)
+- Design audio feedback that works well in demo environments
+
+## Voice States and Transitions
+```typescript
+type VoiceState = 
+  | 'idle'           // Not listening, assistant quiet
+  | 'listening'      // Microphone active, detecting speech
+  | 'processing'     // Speech received, AI thinking
+  | 'speaking'       // Assistant responding
+  | 'error'          // Error state with recovery options
+
+interface VoiceConfig {
+  autoStart: boolean;
+  visualFeedback: 'waveform' | 'pulse' | 'minimal';
+  audioThreshold: number;
+  timeoutMs: number;
+}
+```
+
+## Visual Feedback Patterns
+- **Idle State**: Gentle breathing animation
+- **Listening**: Active waveform with real-time audio levels
+- **Processing**: Thinking animation (dots, spinner, or wave)
+- **Speaking**: Text appearing with voice synthesis visualization
+- **Error**: Clear error state with retry options
+
+## Demo Considerations
+- Create mock voice responses for consistent demos
+- Implement silent mode with visual-only feedback
+- Design voice interactions that work in noisy environments
+- Provide manual controls for demo flow management
+- Create compelling voice visualization for screen sharing
+
+## Performance Requirements
+- Audio processing should not block UI thread
+- Implement proper cleanup for audio resources
+- Use audio context suspension during inactive periods
+- Optimize for battery life on mobile demos
+- Handle multiple audio streams efficiently
