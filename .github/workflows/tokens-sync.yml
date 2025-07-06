@@ -12,12 +12,16 @@ on:
 jobs:
   sync-tokens:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
     
     - name: Setup Node.js
       uses: actions/setup-node@v3
@@ -66,9 +70,9 @@ jobs:
     - name: Push directly to main
       if: github.ref == 'refs/heads/main'
       run: |
-        git push origin main
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main
     
     - name: Auto-merge PR for tokens-studio branch
       if: github.ref == 'refs/heads/tokens-studio'
       run: |
-        git push origin HEAD:main 
+        git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:main 
