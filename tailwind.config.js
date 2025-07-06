@@ -13,7 +13,7 @@ export default {
             "200": "#a4ffc8",
             "300": "#68ffa0",
             "400": "#26f471",
-            "500": "#00b140",
+            "500": "#0005b0",
             "600": "#009a3a",
             "700": "#007d31",
             "800": "#00622a",
@@ -67,9 +67,9 @@ export default {
       "mono": [
             "ui-monospace",
             "SFMono-Regular",
-            "'SF Mono'",
+            "SF Mono",
             "Consolas",
-            "'Liberation Mono'",
+            "Liberation Mono",
             "Menlo",
             "monospace"
       ]

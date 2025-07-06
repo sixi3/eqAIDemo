@@ -95,7 +95,8 @@ function validateTokenValue(value, expectedType, path) {
       break;
     case 'dimension':
     case 'spacing':
-      if (!/^\d+(\.\d+)?(px|rem|em|%|vh|vw|vmin|vmax)$|^\{.+\}$/.test(value)) {
+      // Allow unitless zero (0) and values with units, plus token references
+      if (!/^(0|0\.0+|\d+(\.\d+)?(px|rem|em|%|vh|vw|vmin|vmax))$|^\{.+\}$/.test(value)) {
         errors.push(`Invalid dimension format at ${path}: ${value}`);
       }
       break;
