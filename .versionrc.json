@@ -1,0 +1,54 @@
+{
+  "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),\nand this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n",
+  "commitUrlFormat": "https://github.com/sixi3/design-tokens-sync/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/sixi3/design-tokens-sync/compare/{{previousTag}}...{{currentTag}}",
+  "issueUrlFormat": "https://github.com/sixi3/design-tokens-sync/issues/{{id}}",
+  "userUrlFormat": "https://github.com/{{user}}",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
+  "types": [
+    {
+      "type": "feat",
+      "section": "✨ Features"
+    },
+    {
+      "type": "fix", 
+      "section": "🐛 Bug Fixes"
+    },
+    {
+      "type": "perf",
+      "section": "⚡ Performance Improvements"
+    },
+    {
+      "type": "refactor",
+      "section": "♻️ Code Refactoring"
+    },
+    {
+      "type": "docs",
+      "section": "📚 Documentation"
+    },
+    {
+      "type": "test",
+      "section": "🧪 Tests"
+    },
+    {
+      "type": "build",
+      "section": "👷 Build System"
+    },
+    {
+      "type": "ci",
+      "section": "🔧 Continuous Integration"
+    },
+    {
+      "type": "chore",
+      "hidden": true
+    },
+    {
+      "type": "style", 
+      "hidden": true
+    },
+    {
+      "type": "revert",
+      "section": "⏪ Reverts"
+    }
+  ]
+} 

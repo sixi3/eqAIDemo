@@ -1,0 +1,74 @@
+# Development files
+src/components/
+src/flows/
+src/hooks/
+src/styles/
+src/types/
+src/assets/
+src/App.tsx
+src/main.tsx
+src/vite-env.d.ts
+index.html
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+
+# Documentation (keep README.md)
+docs/
+*.md
+!README.md
+
+# Build artifacts (except package build)
+dist/
+build/
+coverage/
+public/
+reports/
+
+# Development dependencies
+node_modules/
+.vscode/
+.idea/
+
+# Environment and config files
+.env*
+.gitignore
+vercel.json
+postcss.config.js
+
+# Test files
+test/
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+
+# Scripts (keep only package scripts)
+scripts/
+
+# Analytics and reports
+analytics-usage-*.csv
+design-system-*.html
+design-system-*.json
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.github/
+
+# Package development
+todo-tokens.md
+design-tokens-sync-package.md
+.versionrc.json
+jest.config.js
+design-tokens-sync-*.tgz
+*.tgz
+
+# Release automation
+CHANGELOG.md
+docs/RELEASE.md 
